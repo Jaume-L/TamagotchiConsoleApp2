@@ -11,27 +11,22 @@ class TamagotchiConsoleAppTests: XCTestCase {
 
     func testWhenICreateTamagotchiItsWeightHungerAndHappinessAreInitialisedTo0() {
         //arrange
-        let expectedWeight = 0
-        let expectedHunger = 0
-        let expectedHappiness = 0
         //act
         let tamagotchi = Tamagotchi()
         //assert
-        XCTAssertEqual(expectedWeight, tamagotchi.weight)
-        XCTAssertEqual(expectedHunger, tamagotchi.hunger)
-        XCTAssertEqual(expectedHappiness, tamagotchi.happiness)
+        XCTAssertEqual(tamagotchi.getWeight(), 0)
+        XCTAssertEqual(tamagotchi.getHunger(), 5)
+        XCTAssertEqual(tamagotchi.getHappiness(), 0)
     }
     
     func testWhenTamagotchiEatsASnackHungerIsDecreasedBy1WeightIncreasesBy2() {
         //arrange
-        let expectedHunger = -1
-        let expectedWeight = 1
         //act
         let tamagotchi = Tamagotchi()
         tamagotchi.eatSnack()
         //assert
-        XCTAssertEqual(expectedHunger, tamagotchi.hunger)
-        XCTAssertEqual(expectedWeight, tamagotchi.weight)
+        XCTAssertEqual(tamagotchi.getHunger(), 4)
+        XCTAssertEqual(tamagotchi.getWeight(), 2)
     }
     
 }
